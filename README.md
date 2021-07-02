@@ -63,7 +63,9 @@ pip install -e .
 ```
 # Do the steps for Windows above
 # If conda is used, uninstall conda Pillow to avoid problems
-conda uninstall Pillow / pip uninstall Pillow
+conda uninstall Pillow -y
+# or uninstall with pip
+pip uninstall Pillow
 pip install --upgrade Pillow
 
 pip install pyinstaller
