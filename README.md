@@ -82,6 +82,10 @@ Q: AMD GPU?
 
 A: No, you bought a bad GPU. Only Nvidia GPUs do have good support for this kind of task. Code will use CPU instead. It may be possible with Vulkan or ONNX, but this requires some work and is most likely also slower, [since Vulkan showed around half of the performance of CUDA](https://github.com/n00mkrad/flowframes/blob/main/Benchmarks.md). If you *really* want to try it and have a GPU that is ROCm compatible, install Arch linux and [follow these steps](https://github.com/pytorch/pytorch/issues/53738#issuecomment-813058293). Compiling ROCm and Pytorch (ROCm version) will probably take like 9 hours in total. Around 6 for ROCm and around 3 for Pytorch. No gurantee it will even work, since my attempt to get EfficientNet working failed. Only try this if you have an RX5xx or a Vega, have a lot of time and you know what you are doing. I heard that DirectML does support PyTorch, but I never tested it. It requires ONNX, which can't be generated without modifying mmdetection, since the forward function does require additional information like ground truth bounding box for example. Currently only supporting either CPU or CUDA.
 
+Q: Supported file formats?
+
+A: Technically everything that OpenCV supports, but glob currently only searches for JPG and PNG.
+
 # Acknowledgements
 Was trained with the [OpenMMLab Detection Toolbox](https://github.com/open-mmlab/mmdetection). Mostly unmodified, but custom code was written to use the trained models. The default Code does require a ``.json`` during inference. Also adding other things like a replacement for `img_metas` and a `fp16` feature. More infos in the code.  
 
