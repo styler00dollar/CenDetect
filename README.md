@@ -67,6 +67,9 @@ pip install -e .
 
 ## Usage
 ```
+# If Anaconda is used, make sure you use the correct env
+conda activate mmdetection
+
 python det.py [--fp16] [--confidence <float>] [--input_path <string>] [--output_path <string>]
 ```
 
