@@ -25,7 +25,7 @@ Python: https://www.python.org/downloads/
 
 ## Linux
 ```
-# installing PyTorch with pip
+# Installing PyTorch with pip
 pip install torch==1.8.0+cu111 torchvision==0.9.0+cu111 torchaudio==0.8.0 -f https://download.pytorch.org/whl/torch_stable.html
 # or installing PyTorch with anaconda
 conda create -n mmdetection python=3.9 -y
@@ -53,7 +53,7 @@ conda activate mmdetection
 
 pip install mmcv-full
 # Download the official mmdetection Code (https://github.com/open-mmlab/mmdetection)
-# change `mmdetection/requirements/runtime.txt` file to `pycocotools` instead of `pycocotools; platform_system == "Linux"` and `pycocotools-windows; platform_system == "Windows"`.
+# Change `mmdetection/requirements/runtime.txt` file to `pycocotools` instead of `pycocotools; platform_system == "Linux"` and `pycocotools-windows; platform_system == "Windows"`.
 # If you don't change this, it will say that it couldn't find the package "pycocotools"
 # run install within the mmdetection directory
 pip install -e .
@@ -62,7 +62,7 @@ pip install -e .
 # Creating an .exe with pyinstaller
 ```
 # Do the steps for Windows above
-# if conda is used, uninstall conda Pillow to avoid problems
+# If conda is used, uninstall conda Pillow to avoid problems
 conda uninstall Pillow / pip uninstall Pillow
 pip install --upgrade Pillow
 
