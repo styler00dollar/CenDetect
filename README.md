@@ -27,11 +27,12 @@ Python: https://www.python.org/downloads/
 ```
 # Installing dependencies with pip
 pip install torch==1.8.0+cu111 torchvision==0.9.0+cu111 torchaudio==0.8.0 -f https://download.pytorch.org/whl/torch_stable.html
-pip install opencv-python tqdm
+pip install opencv-python tqdm numpy
 # or installing with Anaconda
 conda create -n mmdetection python=3.9 -y
 conda activate mmdetection
 conda install pytorch==1.8.0 torchvision==0.9.0 torchaudio==0.8.0 cudatoolkit=11.1 -c pytorch -c conda-forge -y
+conda install -c anaconda numpy -y
 conda install tqdm -y
 conda install -c conda-forge opencv -y
 
@@ -46,7 +47,7 @@ pip install -e .
 
 ## Windows
 ```
-# Install PyTorch, tqdm, OpenCV and mmcv with the commands above
+# Install PyTorch, numpy, tqdm, OpenCV and mmcv with the commands above
 # Download and install Cuda 11.1 (https://developer.nvidia.com/cuda-11.1.0-download-archive)
 # Reboot
 # Download Build Tools (https://visualstudio.microsoft.com/visual-cpp-build-tools/)
