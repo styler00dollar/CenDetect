@@ -29,7 +29,6 @@ def main():
 
   args = parser.parse_args()
 
-
   # detect all files from input folder
   files = glob.glob(args.input_path + '/**/*.png', recursive=True)
   files_jpg = glob.glob(args.input_path + '/**/*.jpg', recursive=True)
@@ -78,8 +77,8 @@ def main():
         mask = mask | result[0][1][0][counter]
         counter += 1
 
-    counter = 0
     # mosaic
+    counter = 0
     for f in result[0][0][1]:
       if f[4] > args.confidence:
         mask = mask | result[0][1][1][counter]
