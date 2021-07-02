@@ -39,7 +39,8 @@ def main():
   model = build_detector(cfg.model)
 
   # load state dict into model
-  x = torch.load(model_path)
+  device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+  x = torch.load(model_path, map_location=torch.device(device))
   model.load_state_dict(x['state_dict'])
 
   for i in tqdm(files):
@@ -52,7 +53,6 @@ def main():
         input = input.type(torch.HalfTensor)
 
     # move to device
-    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     model = model.to(device)
     input = input.to(device)
     model.eval()
