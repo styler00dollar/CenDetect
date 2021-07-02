@@ -17,7 +17,7 @@ Just download from ``releases`` and open the ``.bat`` file. You can also edit th
 # Running from source
 There are 2 ways to install it, with and without Anaconda. If you don't want to use Anaconda, install python. Python is already preinstalled in Linux based distros. Anaconda is recommended. If you do not use Anaconda, then you maybe need to install CUDA in Linux yourself. Inside Windows, it seems to be a requirement to install CUDA.
 
-The exact version of Python and the other packages shouldn't be very important, but make sure that [mmcv](https://github.com/open-mmlab/mmcv) does support the installed pytorch package. Currently it ``supports up to Pytorch 1.8``. ``Pytorch 1.9 currently is not compatible`` and will result in errors.
+The exact version of Python and the other packages shouldn't be very important, but make sure that [mmcv](https://github.com/open-mmlab/mmcv) does support the installed PyTorch package. Currently it ``supports up to Pytorch 1.8``. ``Pytorch 1.9 currently is not compatible`` and will result in errors.
 
 Anaconda: https://www.anaconda.com/products/individual
 
