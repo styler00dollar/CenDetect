@@ -35,10 +35,10 @@ conda install pytorch==1.8.0 torchvision==0.9.0 torchaudio==0.8.0 cudatoolkit=11
 conda install tqdm -y
 conda install -c conda-forge opencv -y
 
-# installing mmcv
+# Installing mmcv
 pip install mmcv-full==1.3.8 -f https://download.openmmlab.com/mmcv/dist/cu111/torch1.8.0/index.html
 
-# installing mmdetection
+# Installing mmdetection
 git clone https://github.com/open-mmlab/mmdetection
 cd mmdetection
 pip install -e .
