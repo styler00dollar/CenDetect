@@ -64,6 +64,11 @@ pip install mmcv-full
 pip install -e .
 ```
 
+## Usage
+```
+python det.py [--fp16] [--confidence <float>] [--input_path <string>] [--output_path <string>]
+```
+
 # Creating an .exe with pyinstaller
 ```
 # Do the steps for Windows above
