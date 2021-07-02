@@ -15,7 +15,7 @@ A repository to detect degradation in images and masking such areas.
 Just download from ``releases`` and open the ``.bat`` file. You can also edit that file to change the startup parameters, like ``confidence`` and ``fp16``.
 
 # Running from source
-There are 2 ways to install it, with and without anaconda. If you don't want to use anaconda, install python. Python is already preinstalled in Linux based distros. Anaconda is recommended. If you do not use Anaconda, then you maybe need to install CUDA in Linux yourself. Inside Windows, it seems to be a requirement to install CUDA.
+There are 2 ways to install it, with and without Anaconda. If you don't want to use Anaconda, install python. Python is already preinstalled in Linux based distros. Anaconda is recommended. If you do not use Anaconda, then you maybe need to install CUDA in Linux yourself. Inside Windows, it seems to be a requirement to install CUDA.
 
 The exact version of Python shouldn't be very important, but make sure that [mmcv](https://github.com/open-mmlab/mmcv) does support the installed pytorch package. Currently it ``supports up to Pytorch 1.8``. ``Pytorch 1.9 currently is not compatible`` and will result in errors.
 
@@ -27,7 +27,7 @@ Python: https://www.python.org/downloads/
 ```
 # Installing PyTorch with pip
 pip install torch==1.8.0+cu111 torchvision==0.9.0+cu111 torchaudio==0.8.0 -f https://download.pytorch.org/whl/torch_stable.html
-# or installing PyTorch with anaconda
+# or installing PyTorch with Anaconda
 conda create -n mmdetection python=3.9 -y
 conda activate mmdetection
 conda install pytorch==1.8.0 torchvision==0.9.0 torchaudio==0.8.0 cudatoolkit=11.1 -c pytorch -c conda-forge -y
@@ -41,14 +41,14 @@ pip install -e .
 
 ## Windows
 ```
-# Install torch and mmcv with the commands above
+# Install PyTorch and mmcv with the commands above
 # Download and install Cuda 11.1 (https://developer.nvidia.com/cuda-11.1.0-download-archive)
 # Reboot
 # Download Build Tools (https://visualstudio.microsoft.com/visual-cpp-build-tools/)
 # Select the first thing with C++ inside the installer and install
 # Reboot
 
-# If anaconda is used, activate env
+# If Anaconda is used, activate env
 conda activate mmdetection
 
 pip install mmcv-full
