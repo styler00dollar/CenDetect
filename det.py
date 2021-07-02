@@ -25,7 +25,7 @@ def main():
   parser.add_argument('--output_path', type=str, default="output", required=False, help='Path to a folder for output')
   
   parser.add_argument('--config_path', type=str, default="mask_rcnn_r50_fpn_2x_coco.py", required=False, help='Config file to build the model')
-  parser.add_argument('--model_path', type=str, default="epoch_3.pth", required=True, help='The path to the pth model itself')
+  parser.add_argument('--model_path', type=str, default="epoch_3.pth", required=False, help='The path to the pth model itself')
 
   args = parser.parse_args()
 
