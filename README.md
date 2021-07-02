@@ -25,19 +25,33 @@ Python: https://www.python.org/downloads/
 
 ## Linux
 ```
-# Installing dependencies with pip
+# GPU
+# Installing PyTorch with pip
 pip install torch==1.8.0+cu111 torchvision==0.9.0+cu111 torchaudio==0.8.0 -f https://download.pytorch.org/whl/torch_stable.html
-pip install opencv-python tqdm numpy
 # or installing with Anaconda
 conda create -n mmdetection python=3.9 -y
 conda activate mmdetection
 conda install pytorch==1.8.0 torchvision==0.9.0 torchaudio==0.8.0 cudatoolkit=11.1 -c pytorch -c conda-forge -y
+
+# CPU
+# Installing PyTorch with pip
+pip install torch==1.8.0+cpu torchvision==0.9.0 torchaudio==0.8.0 -f https://download.pytorch.org/whl/torch_stable.html
+# or installing with Anaconda
+conda create -n mmdetection python=3.9 -y
+conda activate mmdetection
+conda install pytorch==1.8.0 torchvision==0.9.0 torchaudio==0.8.0 cpuonly -c pytorch -y
+
+# Install other dependencies
+pip install opencv-python tqdm numpy
+# or with Anaconda
 conda install -c anaconda numpy -y
 conda install tqdm -y
 conda install -c conda-forge opencv -y
 
-# Installing mmcv
+# Installing mmcv with CUDA 11.1 (GPU usage)
 pip install mmcv-full==1.3.8 -f https://download.openmmlab.com/mmcv/dist/cu111/torch1.8.0/index.html
+# Installing mmcv CPU version
+pip install mmcv-full==1.3.8 -f https://download.openmmlab.com/mmcv/dist/cpu/torch1.8.0/index.html
 
 # Installing mmdetection
 git clone https://github.com/open-mmlab/mmdetection
