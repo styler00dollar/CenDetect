@@ -15,7 +15,7 @@ A repository to detect degradation in images and masking such areas.
 Just download from ``releases`` and open the ``.bat`` file. You can also edit that file to change the startup parameters, like ``confidence`` and ``fp16``.
 
 # Running from source
-There are 2 ways to install it, with and without anaconda. If you don't want to use anaconda, install python. Python is already preinstalled in Linux based distros. Anaconda is recommended. If you do not use Anaconda, then you maybe need to install CUDA in Linux yourself. Inside windows, it seems to be a requirement to install CUDA.
+There are 2 ways to install it, with and without anaconda. If you don't want to use anaconda, install python. Python is already preinstalled in Linux based distros. Anaconda is recommended. If you do not use Anaconda, then you maybe need to install CUDA in Linux yourself. Inside Windows, it seems to be a requirement to install CUDA.
 
 The exact version of Python shouldn't be very important, but make sure that [mmcv](https://github.com/open-mmlab/mmcv) does support the installed pytorch package. Currently it ``supports up to Pytorch 1.8``. ``Pytorch 1.9 currently is not compatible`` and will result in errors.
 
