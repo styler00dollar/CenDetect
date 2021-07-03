@@ -112,6 +112,6 @@ Q: Supported file formats?
 A: Technically everything that OpenCV supports, but glob currently only searches for JPG and PNG.
 
 # Acknowledgements
-Was trained with the [OpenMMLab Detection Toolbox](https://github.com/open-mmlab/mmdetection). Mostly unmodified, but custom code was written to use the trained models. The default Code does require a ``.json`` during inference. Also adding other things like a replacement for `img_metas` and a `fp16` feature. More infos in the code.  
+Was trained with the [OpenMMLab Detection Toolbox](https://github.com/open-mmlab/mmdetection). Mostly unmodified, but custom code was written to use the trained models and avoiding the usage of `.json` files, adding a replacement for `img_metas` and a `fp16` feature. [Also custom backbones where added with timm in my fork](https://github.com/styler00dollar/Colab-mmdetection).
 
 Inspriration from [natethegreate/hent-AI](https://github.com/natethegreate/hent-AI). Mostly giving ideas on which custom code was written.
