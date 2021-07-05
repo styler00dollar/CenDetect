@@ -41,12 +41,8 @@ conda create -n mmdetection python=3.9 -y
 conda activate mmdetection
 conda install pytorch==1.8.0 torchvision==0.9.0 torchaudio==0.8.0 cpuonly -c pytorch -y
 
-# Install other dependencies
+# Install other dependencies (pip also works in Anaconda)
 pip install opencv-python tqdm numpy
-# or with Anaconda
-conda install -c anaconda numpy -y
-conda install tqdm -y
-conda install -c conda-forge opencv -y
 
 # Installing mmcv with CUDA 11.1 (GPU usage)
 pip install mmcv-full==1.3.8 -f https://download.openmmlab.com/mmcv/dist/cu111/torch1.8.0/index.html
@@ -84,8 +80,19 @@ pip install -e .
 # If Anaconda is used, make sure you use the correct env
 conda activate mmdetection
 
-python det.py [--fp16] [--confidence <float>] [--input_path <string>] [--output_path <string>]
+python det.py [--fp16] [--confidence <float (0-1)>] [--input_path "PATH"] [--output_path "PATH">] [--device "cuda" or "cpu"] --model ["mask_rcnn_r50_fpn" | "mask_rcnn_r101_fpn" | "point_rend_r50_fpn" | "mask_rcnn_r50_fpn_dconv"]
 ```
+
+There are currently 4 models:
+|    Model     |  CPU  | GPU (CUDA) | FP16 | Training iter | Misc
+| :----------: | :---: | :--------: | :--: | :-----------: | :--: |
+|   mask_rcnn_r50_fpn       | Yes | Yes | Yes | ~172k | Fast with medium accuracy
+|   mask_rcnn_r101_fpn      | Yes | Yes | Yes | X | A bigger version of mask_rcnn_r50_fpn, theoretically better
+|   mask_rcnn_r50_fpn_dconv | No  | Yes | Yes | X | Should be better than mask_rcnn_r50_fpn
+|   point_rend_r50_fpn      | Yes | No (1.8.1+cu111 bug, waiting for 1.9) | No | ~433k | Should be better than mask_rcnn_r50_fpn_dconv
+
+
+FP16 can be faster (especially if the GPU is RTX2xxx or newer) and uses less VRAM.
 
 # Creating an .exe with pyinstaller
 ```
