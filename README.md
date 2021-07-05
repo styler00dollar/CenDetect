@@ -116,7 +116,7 @@ If you *really* want to try to run the source Code and have a GPU that is ROCm c
 
 Q: Supported file formats?
 
-A: Technically everything that OpenCV supports, but glob currently only searches for JPG and PNG.
+A: Technically everything that OpenCV supports, but glob currently only searches for JPG, JPEG, WebP and PNG.
 
 # Acknowledgements
 Was trained with the [OpenMMLab Detection Toolbox](https://github.com/open-mmlab/mmdetection). Mostly unmodified, but custom code was written to use the trained models and avoiding the usage of `.json` files, adding a replacement for `img_metas` and a `fp16` feature. [Also custom backbones where added with timm in my fork](https://github.com/styler00dollar/Colab-mmdetection).
