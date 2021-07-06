@@ -84,12 +84,12 @@ python det.py [--fp16] [--confidence <float (0-1)>] [--input_path "PATH"] [--out
 ```
 
 There are currently 4 models:
-|    Model     |  CPU  | GPU (CUDA) | FP16 | Training iter | Misc
+|    Model     |  CPU  | GPU (CUDA) | FP16 | Iterations / Batch Size / MinMax Train Res | Misc
 | :----------: | :---: | :--------: | :--: | :-----------: | :--: |
-|   mask_rcnn_r50_fpn       | Yes | Yes | Yes | ~172k | Fast with medium accuracy
-|   mask_rcnn_r101_fpn      | Yes | Yes | Yes | X | A bigger version of mask_rcnn_r50_fpn, theoretically better
-|   mask_rcnn_r50_fpn_dconv | No  | Yes | Yes | X | Should be better than mask_rcnn_r50_fpn
-|   point_rend_r50_fpn      | Yes | No (1.8.1+cu111 bug, waiting for 1.9) | No | ~433k | Should be better than mask_rcnn_r50_fpn_dconv
+|   mask_rcnn_r50_fpn       | Yes | Yes | Yes | ~172k / 2 / 1024-1666px | Fast with medium accuracy
+|   mask_rcnn_r101_fpn      | Yes | Yes | Yes | X / 2 / 1024-1500px | A bigger version of mask_rcnn_r50_fpn, theoretically better
+|   mask_rcnn_r50_fpn_dconv | No  | Yes | Yes | X / X / X | Should be better than mask_rcnn_r50_fpn
+|   point_rend_r50_fpn      | Yes | No (1.8.1+cu111 bug, waiting for 1.9) | No | ~433k / 2 / 1024-1600px | Should be better than mask_rcnn_r50_fpn_dconv
 
 
 FP16 can be faster (especially if the GPU is RTX2xxx or newer) and uses less VRAM.
