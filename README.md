@@ -84,15 +84,17 @@ python det.py [--fp16] [--confidence <float (0-1)>] [--input_path "PATH"] [--out
 ```
 
 There are currently 4 models:
-|    Model     |  CPU  | GPU (CUDA) | FP16 | Iterations / Batch Size / MinMax Train Res | Misc
-| :----------: | :---: | :--------: | :--: | :-----------: | :--: |
-|   mask_rcnn_r50_fpn       | Yes | Yes | Yes | ~172k / 2 / 1024-1666px | Fast with medium accuracy
-|   mask_rcnn_r101_fpn      | Yes | Yes | Yes | X / 2 / 1024-1500px | A bigger version of mask_rcnn_r50_fpn, theoretically better
-|   mask_rcnn_r50_fpn_dconv | No  | Yes | Yes | X / X / X | Should be better than mask_rcnn_r50_fpn
-|   point_rend_r50_fpn      | Yes | No (1.8.1+cu111 bug, waiting for 1.9) | No | ~433k / 2 / 1024-1600px | Should be better than mask_rcnn_r50_fpn_dconv
+|    Model     |  CPU  | GPU (CUDA) | FP16 | Iterations / Batch Size / MinMax Train Res | Speed CPU | Speed GPU (FP16/FP32) | VRAM Usage (FP16/FP32) | Misc
+| :----------: | :---: | :--------: | :--: | :----------------------------------------: | :-------------------: | :-------------------: | :--------------------: | :--: 
+|   mask_rcnn_r50_fpn       | Yes | Yes | Yes | ~172k / 2 / 1024-1666px | 7.24s | 0.216s / 0.197s | 2.2GB / 2.2GB | Fast with medium accuracy
+|   mask_rcnn_r101_fpn      | Yes | Yes | Yes | X / 2 / 1024-1500px | 9.13s | 0.245s / 0.22s | 1.8GB / 1.8GB | A bigger version of mask_rcnn_r50_fpn, theoretically better
+|   mask_rcnn_r50_fpn_dconv | No  | Yes | Yes | X / X / X | | 0.253s / 0.228s | 3.3GB / 3.5GB | Should be better than mask_rcnn_r50_fpn
+|   point_rend_r50_fpn      | Yes | No (1.8.1+cu111 bug, waiting for 1.9) | No | ~433k / 2 / 1024-1600px | 6.88s | | | Should be better than mask_rcnn_r50_fpn_dconv
 
 
-FP16 can be faster (especially if the GPU is RTX2xxx or newer) and uses less VRAM.
+FP16 can be faster (especially if the GPU is RTX2xxx or newer) and can use less VRAM, but tests did not really show improvements. Due to overhead because of converting data into FP16, it can also be slower.
+
+VRAM usage and speed tests use 87 1024px resized png files with a Tesla P100, which does not have Tensor Cores. Probably should be re-tested later. CPU tests are done on a Intel Xeon Dual-Core CPU @ 2.20GHz.
 
 # Creating an .exe with pyinstaller
 ```
