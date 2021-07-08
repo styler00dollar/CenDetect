@@ -87,7 +87,7 @@ There are currently 4 models:
 |    Model     |  CPU  | GPU (CUDA) | FP16 | Iterations / Batch Size / MinMax Train Res | Speed CPU | Speed GPU (FP16/FP32) | VRAM Usage (FP16/FP32) | Misc
 | :----------: | :---: | :--------: | :--: | :----------------------------------------: | :-------------------: | :-------------------: | :--------------------: | :--: 
 |   mask_rcnn_r50_fpn       | Yes | Yes | Yes | ~172k / 2 / 1024-1666px | 7.24s | 0.158s / 0.185s | 2.7GB / 2.6GB | Fast with medium accuracy
-|   mask_rcnn_r101_fpn      | Yes | Yes | Yes | X / 2 / 1024-1500px | 9.13s | 0.165s / 0.2s | 2.3GB / 2.2GB | A bigger version of mask_rcnn_r50_fpn, theoretically better
+|   mask_rcnn_r101_fpn      | Yes | Yes | Yes | ~194k / 2 / 1024-1500px | 9.13s | 0.165s / 0.2s | 2.3GB / 2.2GB | A bigger version of mask_rcnn_r50_fpn, theoretically better
 |   mask_rcnn_r50_fpn_dconv | No  | Yes | Yes | X / X / X | | 0.182s / 0.207s | 3.9GB / 4GB | Should be better than mask_rcnn_r50_fpn
 |   point_rend_r50_fpn      | Yes | No (Yes, but unstable, probably 1.8.1+cu111 bug, waiting for 1.9) | No (grid_sampler wants FP32) | ~433k / 2 / 1024-1600px | 6.88s | x / 0.192s | x / 2.4GB | Should be better than mask_rcnn_r50_fpn_dconv
 
