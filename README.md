@@ -84,13 +84,13 @@ python det.py [--fp16] [--confidence <float (0-1)>] [--input_path "PATH"] [--out
 ```
 
 There are currently 5 models:
-|    Model     |  CPU  | GPU (CUDA) | FP16 | Iterations / Batch Size / MinMax Train Res | Speed CPU | Speed GPU (FP16/FP32) | VRAM Usage (FP16/FP32) | bbox mAP / mAR @IoU=0.50:0.95 |  segm mAP / mAR @IoU=0.50:0.95 | Misc
-| :----------: | :---: | :--------: | :--: | :----------------------------------------: | :-------------------: | :-------------------: | :--------------------: | :------------: | :---: | :---: | 
-|   mask_rcnn_r50_fpn       | Yes | Yes | Yes | 235k / 2 / 1024-1666px | 7.24s | 0.158s / 0.185s | 2.7GB / 2.6GB | 0.757 / 0.819 | 0.808 / 0.855 | Fast with medium accuracy
-|   mask_rcnn_r101_fpn      | Yes | Yes | Yes | 190k / 2 / 1024-1500px | 9.13s | 0.165s / 0.2s | 2.3GB / 2.2GB | 0.756 / 0.811 | 0.792 / 0.840| A bigger version of mask_rcnn_r50_fpn, theoretically better, but  metrics imply that r50 is better
-|   mask_rcnn_r50_fpn_dconv | No  | Yes | Yes | X / X / X | | 0.182s / 0.207s | 3.9GB / 4GB | | | Should be better than mask_rcnn_r50_fpn
-|   point_rend_r50_fpn      | Yes | No (Yes, but unstable, probably 1.8.1+cu111 bug, waiting for 1.9) | No (grid_sampler wants FP32) | 520k / 2 / 1024-1600px | 6.88s | x / 0.192s | x / 2.4GB | 0.735 / 0.787 | 0.803 / 0.846 | Should be better than mask_rcnn_r50_fpn_dconv
-|   cascade_mask_rcnn_r50_fpn_dconv | | | | / 2 / 1024-1600px| | | | | | |
+|    Model     |  CPU  | GPU (CUDA) | FP16 | Iterations / Batch Size / MinMax Train Res | Speed CPU | Speed GPU (FP16/FP32) | VRAM Usage (FP16/FP32) | bbox mAP / mAR @IoU=0.50:0.95 |  segm mAP / mAR @IoU=0.50:0.95 | 
+| :----------: | :---: | :--------: | :--: | :----------------------------------------: | :-------------------: | :-------------------: | :--------------------: | :------------: | :---: | 
+|   mask_rcnn_r50_fpn       | Yes | Yes | Yes | 235k / 2 / 1024-1666px | 7.24s | 0.158s / 0.185s | 2.7GB / 2.6GB | 0.757 / 0.819 | 0.808 / 0.855
+|   mask_rcnn_r101_fpn      | Yes | Yes | Yes | 190k / 2 / 1024-1500px | 9.13s | 0.165s / 0.2s | 2.3GB / 2.2GB | 0.756 / 0.811 | 0.792 / 0.840
+|   mask_rcnn_r50_fpn_dconv | No  | Yes | Yes | X / X / X | | 0.182s / 0.207s | 3.9GB / 4GB | | 
+|   point_rend_r50_fpn      | Yes | No (Yes, but unstable, probably 1.8.1+cu111 bug, waiting for 1.9) | No (grid_sampler wants FP32) | 520k / 2 / 1024-1600px | 6.88s | x / 0.192s | x / 2.4GB | 0.735 / 0.787 | 0.803 / 0.846 
+|   cascade_mask_rcnn_r50_fpn_dconv | | | | / 2 / 1024-1600px| | | | | |
 
 FP16 can be faster (especially if the GPU is RTX2xxx or newer) and *can* use less VRAM, but tests did not really show VRAM improvements. **Warning: Do not use FP16 on hardware that does not have Tensor Cores!** Due to overhead because of converting data into FP16, it can also be slower. Tests with a P100 showed slower inference speeds compared to FP32. Only use it on GPUs that are RTX2xxx and newer.
 
