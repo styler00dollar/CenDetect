@@ -87,7 +87,7 @@ There are currently 5 models:
 |   mask_rcnn_r101_fpn      | Yes | Yes | Yes | 190k / 2 / 1024-1500px | 9.13s | 0.165s / 0.2s | 2.3GB / 2.2GB | 0.756 / 0.811 | 0.792 / 0.840
 |   mask_rcnn_r50_fpn_dconv | No (DeformConv is not implemented on CPU) | Yes | Yes | X / X / X | | 0.182s / 0.207s | 3.9GB / 4GB | | 
 |   point_rend_r50_fpn      | Yes | Yes (mmcv + pytorch 1.9 seems stable) | No (grid_sampler wants FP32) | 520k / 2 / 1024-1600px | 6.88s | x / 0.192s | x / 2.4GB | 0.735 / 0.787 | 0.803 / 0.846 
-|   cascade_mask_rcnn_r50_fpn_dconv | No (DeformConv is not implemented on CPU) | Yes | Yes | 125k / 2 / 1024-1600px | | | | 0.787 / 0.838 | 0.764 / 0.813 |
+|   cascade_mask_rcnn_r50_fpn_dconv | No (DeformConv is not implemented on CPU) | Yes | Yes | 125k / 2 / 1024-1600px | | 0.174 / 0.194 | 2.3GB / 2.4GB | 0.787 / 0.838 | 0.764 / 0.813 |
 
 FP16 can be faster (especially if the GPU is RTX2xxx or newer) and *can* use less VRAM, but tests did not really show VRAM improvements. **Warning: Do not use FP16 on hardware that does not have Tensor Cores!** Due to overhead because of converting data into FP16, it can also be slower. Tests with a P100 showed slower inference speeds compared to FP32. Only use it on GPUs that are RTX2xxx and newer.
 
