@@ -6,7 +6,7 @@ A repository to detect degradation in images and masking such areas.
 
 # Features
 - No Tensorflow (easy to install, no GPU restrictions by forcing certain versions of CUDA, no very specific env requirements)
-- FP16 (less VRAM usage and potentially higher speed)
+- FP16 (higher speed on RTX2xxx or newer GPUs and maybe less VRAM usage)
 - Uses an Nvidia GPU if there is one available, if not, then CPU
 - Big dataset with augmentations
 - Multiple architectures (since it uses mmdetection as a base)
