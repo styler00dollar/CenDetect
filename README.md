@@ -27,37 +27,35 @@ Python: https://www.python.org/downloads/
 ```
 # GPU
 # Installing PyTorch with pip
-pip install torch==1.8.0+cu111 torchvision==0.9.0+cu111 torchaudio==0.8.0 -f https://download.pytorch.org/whl/torch_stable.html
+pip install torch==1.9.0+cu111 torchvision==0.10.0+cu111 torchaudio===0.9.0 -f https://download.pytorch.org/whl/torch_stable.html
 # or installing with Anaconda
 conda create -n mmdetection python=3.9 -y
 conda activate mmdetection
-conda install pytorch==1.8.0 torchvision==0.9.0 torchaudio==0.8.0 cudatoolkit=11.1 -c pytorch -c conda-forge -y
+conda install pytorch==1.9.0 torchvision==0.10.0 torchaudio==0.9.0 cudatoolkit=11.1 -c pytorch -c conda-forge -y
 
 # CPU
 # Installing PyTorch with pip
-pip install torch==1.8.0+cpu torchvision==0.9.0 torchaudio==0.8.0 -f https://download.pytorch.org/whl/torch_stable.html
+pip install torch==1.9.0+cpu torchvision==0.10.0 torchaudio==0.9.0 -f https://download.pytorch.org/whl/torch_stable.html
 # or installing with Anaconda
 conda create -n mmdetection python=3.9 -y
 conda activate mmdetection
-conda install pytorch==1.8.0 torchvision==0.9.0 torchaudio==0.8.0 cpuonly -c pytorch -y
+conda install pytorch==1.9.0 torchvision==0.10.0 torchaudio==0.9.0 cpuonly -c pytorch -y
 
 # Install other dependencies (pip also works in Anaconda)
 pip install opencv-python tqdm numpy
 
-# Installing mmcv with CUDA 11.1 (GPU usage)
-pip install mmcv-full==1.3.8 -f https://download.openmmlab.com/mmcv/dist/cu111/torch1.8.0/index.html
-# Installing mmcv CPU version
-pip install mmcv-full==1.3.8 -f https://download.openmmlab.com/mmcv/dist/cpu/torch1.8.0/index.html
+# Installing mmcv (compiling)
+pip install mmcv-full
 
 # Installing mmdetection
-git clone https://github.com/open-mmlab/mmdetection
+git clone https://github.com/styler00dollar/Colab-mmdetection mmdetection
 cd mmdetection
 pip install -e .
 ```
 
 ## Windows
 ```
-# Install PyTorch, numpy, tqdm, OpenCV and mmcv with the commands above
+# Install PyTorch, numpy, tqdm and OpenCV with the commands above
 # Download and install Cuda 11.1 (https://developer.nvidia.com/cuda-11.1.0-download-archive)
 # Reboot
 # Download Build Tools (https://visualstudio.microsoft.com/visual-cpp-build-tools/)
@@ -67,10 +65,9 @@ pip install -e .
 # If Anaconda is used, activate env
 conda activate mmdetection
 
+# compiling mmcv-full will only work if you completed the previous steps
 pip install mmcv-full
-# Download the official mmdetection Code (https://github.com/open-mmlab/mmdetection)
-# Change `mmdetection/requirements/runtime.txt` file to `pycocotools` instead of `pycocotools; platform_system == "Linux"` and `pycocotools-windows; platform_system == "Windows"`.
-# If you don't change this, it will say that it couldn't find the package "pycocotools"
+# Download the mmdetection Code (https://github.com/styler00dollar/Colab-mmdetection)
 # run install within the mmdetection directory
 pip install -e .
 ```
