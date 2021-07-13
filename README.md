@@ -107,9 +107,13 @@ pyinstaller --hidden-import=mmcv._ext --hidden-import torchvision det.py
 ```
 
 # How to manually annotate data (Linux)
-The code works with coco json files. There are probably several tools to do so, I tested `coco-annotator` with arch.
+The code works with coco json files. There are probably several tools to do so, I tested `coco-annotator` with arch. Use the labels "bar" and "mosaic".
 
 Warning: Make sure that every single mask has a seperate bounding box. Create a new detection for every mask with "+". If you don't do that, it will be technically one big mask (one object, instead of multiple), which is not good for training. In `coco-annotator` you should see different colors for every mask inside the same picture. Also, try to mask it as good as possible. Bad data that is a lot of pixels off is not useful.
+
+Example for several mosaic masks:
+
+![labels](https://user-images.githubusercontent.com/51405565/125399990-9b59c400-e3b1-11eb-9a1b-a288196cb676.png)
 
 ```
 yay -S docker
