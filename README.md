@@ -106,6 +106,36 @@ pip install pyinstaller
 pyinstaller --hidden-import=mmcv._ext --hidden-import torchvision det.py
 ```
 
+# How to manually annotate data
+The code works with coco json files. There are probably several tools to do so, I tested `coco-annotator` with arch.
+
+Warning: Make sure that every single mask has a seperate bounding box. Create a new detection for every mask with "+". If you don't do that, it will be technically one big mask (one object, instead of multiple), which is not good for training. In `coco-annotator` you should see different colors for every mask inside the same picture. Also, try to mask it as good as possible. Bad data that is a lot of pixels off is not useful.
+
+```
+yay -S docker
+yay -S docker-compose
+git clone https://github.com/jsbroks/coco-annotator
+```
+How to start it (will install in the first startup)
+```
+cd coco-annotator
+# fixing docker errors
+systemctl start docker
+sudo chmod 666 /var/run/docker.sock
+# start docker
+docker-compose up
+
+# visit this url, does not matter what account details you use, just create some account
+# it will open a page in your browser where you can annotate files and export them into json afterwards
+http://localhost:5000/
+
+# you can turn it off again with
+# since it does save automatically, you can resume at any point again
+docker-compose down
+```
+
+If you want to merge data with mine, I am `sudo rm -rf / --no-preserve-root#8353` in discord.
+
 # FAQ
 Q: AMD GPU?
 
