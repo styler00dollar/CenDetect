@@ -130,8 +130,8 @@ docker-compose up
 http://localhost:5000/
 
 # you can turn it off again with
-# since it does save automatically, you can resume at any point again
 docker-compose down
+# it does save automatically, you can resume at any point again
 ```
 
 If you want to merge data with mine, I am `sudo rm -rf / --no-preserve-root#8353` in discord.
