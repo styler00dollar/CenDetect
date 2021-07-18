@@ -56,10 +56,10 @@ pip install -e .
 ## Windows
 ```
 # Install PyTorch, numpy, tqdm and OpenCV with the commands above
-# Download and install Cuda 11.1 (https://developer.nvidia.com/cuda-11.1.0-download-archive)
-# Reboot
 # Download Build Tools (https://visualstudio.microsoft.com/visual-cpp-build-tools/)
 # Select the first thing with C++ inside the installer and install
+# Reboot
+# Download and install Cuda 11.1 (https://developer.nvidia.com/cuda-11.1.0-download-archive)
 # Reboot
 
 # If Anaconda is used, activate env
@@ -73,14 +73,12 @@ pip install -e .
 ```
 
 ## Compiling PyTorch
-If you really want to compile PyTorch instead, then use these steps.
+If you really want to compile PyTorch instead of using the pre-compiled version in the instructions above, then use these steps.
 
 Linux
 ```
 # if you use conda
 conda activate mmdetection
-# download cudatoolkit if you use conda, you can also specify the version with cudatoolkit=11.3 for example
-conda install cudatoolkit -y
 
 git clone https://github.com/pytorch/pytorch
 cd pytorch
@@ -104,11 +102,11 @@ Windows (Instructions for conda, since git is needed)
 # Download Build Tools (https://visualstudio.microsoft.com/visual-cpp-build-tools/)
 # Select the first thing with C++ inside the installer and install
 # Reboot
+# Download and install Cuda (https://developer.nvidia.com/cuda-downloads)
+# Reboot
 
 conda activate mmdetection
 conda install git -y
-# download cudatoolkit, you can also specify the version with cudatoolkit=11.3 for example
-conda install cudatoolkit -y
 
 git clone https://github.com/pytorch/pytorch
 cd pytorch
