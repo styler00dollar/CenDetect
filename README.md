@@ -113,7 +113,7 @@ Warning: Make sure that every single mask has a seperate bounding box. Create a 
 Also important, delete all duplicates with some tool (for example wiht [dupeguru](https://github.com/arsenetar/dupeguru)) and hash your files with MD5. [I have a simple tool for this.](https://github.com/styler00dollar/MD5Renamer)
 ```
 # Just put this in the folder with pictures and run it
-MD5RenamerConsole64.exe .
+wine MD5RenamerConsole64.exe .
 ```
 Example for several mosaic masks:
 <p align="center">
@@ -145,6 +145,26 @@ docker-compose down
 ```
 
 If you want to merge data with mine, I am `sudo rm -rf / --no-preserve-root#8353` in discord.
+
+# How to manually annotate data (Windows)
+Hash the files like in the linux method, but just use ``MD5RenamerConsole64.exe .`` instead. Also make sure your labels look like in the linux screenshot.
+
+```
+# Download Docker (https://docs.docker.com/docker-for-windows/install/)
+# Install as Admin!
+# Reboot
+# Run as Admin!
+
+# Open powershell
+git clone https://github.com/jsbroks/coco-annotator
+cd coco-annotator
+# start
+docker-compose up
+
+# visit this url, does not matter what account details you use, just create some account
+# it will open a page in your browser where you can annotate files and export them into json afterwards
+http://localhost:5000/
+```
 
 # How to manually annotate data (png files)
 
