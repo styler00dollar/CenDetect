@@ -72,6 +72,49 @@ pip install mmcv-full
 pip install -e .
 ```
 
+## Compiling PyTorch
+If you really want to compile PyTorch instead, then use these steps.
+
+Linux
+```
+git clone https://github.com/pytorch/pytorch
+cd pytorch
+# example selection of branch
+git checkout remotes/origin/release/1.9
+
+git submodule update --init --recursive
+
+# install directly
+python setup.py install
+or
+pip install -e .
+
+# or create whl to install
+python setup.py bdist_wheel
+# find the created .whl file and cd into it
+pip install package_name.whl
+```
+Windows (Instructions for conda, since git is needed)
+```
+# Download Build Tools (https://visualstudio.microsoft.com/visual-cpp-build-tools/)
+# Select the first thing with C++ inside the installer and install
+# Reboot
+
+conda activate mmdetection
+conda install git -y
+
+git clone https://github.com/pytorch/pytorch
+cd pytorch
+# example selection of branch
+git checkout remotes/origin/release/1.9
+
+pip install numpy pyyaml mkl mkl-include setuptools cmake cffi typing ninja typing_extensions
+python setup.py bdist_wheel --cmake
+
+# find the created .whl file and cd into it
+pip install package_name.whl
+```
+
 ## Usage
 ```
 # If Anaconda is used, make sure you use the correct env
