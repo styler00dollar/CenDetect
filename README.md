@@ -148,16 +148,14 @@ If you want to merge data with mine, I am `sudo rm -rf / --no-preserve-root#8353
 
 # How to manually annotate data (png files)
 
-An alternative is to have mask/file pairs, from which json files can be created. Hash the files like in the Linux method and append a different suffix for one type of image. A suggestion would be do do:
+An alternative is to have mask/file pairs, from which json files can be created. Hash the files like in the Linux method. A suggestion would be do do:
 ```
 /masks
-- image1.png (black image with [0,255,0] mask)
-- image2_bar.png (black image with [0, 255, 255] mask)
+- b40f4afe1ce30dfd69f6fc6308531ed0.png (black image with [0,255,0] mask)
 ...
 
 /data
-- image1.png
-- image2_bar.png
+- b40f4afe1ce30dfd69f6fc6308531ed0.png
 ...
 ```
 The exact format is not that important. The only important thing is that a mask has a unique color and classes can be distinguished with filenames, so the mask data can be extracted and can not be confused with image data.
