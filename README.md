@@ -171,7 +171,7 @@ http://localhost:5000/
 An alternative is to have mask/file pairs, from which json files can be created. Hash the files like in the Linux method. A suggestion would be do do:
 ```
 /masks
-- b40f4afe1ce30dfd69f6fc6308531ed0.png (black image with [0,255,0] mask)
+- b40f4afe1ce30dfd69f6fc6308531ed0.png (black image with [0,255,0] for bar and [0,255,255] for mosaic)
 ...
 
 /data
