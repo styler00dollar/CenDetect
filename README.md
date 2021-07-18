@@ -77,6 +77,11 @@ If you really want to compile PyTorch instead, then use these steps.
 
 Linux
 ```
+# if you use conda
+conda activate mmdetection
+# download cudatoolkit if you use conda, you can also specify the version with cudatoolkit=11.3 for example
+conda install cudatoolkit -y
+
 git clone https://github.com/pytorch/pytorch
 cd pytorch
 # example selection of branch
@@ -102,6 +107,8 @@ Windows (Instructions for conda, since git is needed)
 
 conda activate mmdetection
 conda install git -y
+# download cudatoolkit, you can also specify the version with cudatoolkit=11.3 for example
+conda install cudatoolkit -y
 
 git clone https://github.com/pytorch/pytorch
 cd pytorch
