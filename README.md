@@ -44,10 +44,6 @@ conda install pytorch==1.9.0 torchvision==0.10.0 torchaudio==0.9.0 cpuonly -c py
 # Install other dependencies (pip also works in Anaconda)
 pip install opencv-python tqdm numpy
 
-# If you want to use the tresnet_m model
-pip install timm
-pip install git+https://github.com/mapillary/inplace_abn.git@v1.0.12
-
 # Installing mmcv (compiling)
 pip install mmcv-full
 
@@ -91,12 +87,6 @@ There are currently 4 models. Trying to figure out what would be better or worse
 |   mask_rcnn_r101_fpn      | Yes | Yes | Yes | 190k / 2 / 1024-1500px | 9.13s | 0.165s / 0.2s | 2.3GB / 2.2GB | 0.756 / 0.811 | 0.792 / 0.840
 |   point_rend_r50_fpn      | Yes | Yes (mmcv + pytorch 1.9 seems stable) | No (grid_sampler wants FP32) | 520k / 2 / 1024-1600px | 6.88s | x / 0.192s | x / 2.4GB | 0.735 / 0.787 | 0.803 / 0.846 
 |   cascade_mask_rcnn_r50_fpn_dconv | No (DeformConv is not implemented on CPU) | Yes | Yes | 125k / 2 / 1024-1600px | | 0.174 / 0.194 | 2.3GB / 2.4GB | 0.787 / 0.838 | 0.764 / 0.813 |
-
-Other attempts
-|    Model     |  CPU  | GPU (CUDA) | FP16 | Iterations / Batch Size / MinMax Train Res | Speed CPU | Speed GPU (FP16/FP32) | VRAM Usage (FP16/FP32) | bbox mAP / mAR @IoU=0.50:0.95 |  segm mAP / mAR @IoU=0.50:0.95 | Misc
-| :----------: | :---: | :--------: | :--: | :----------------------------------------: | :-------------------: | :-------------------: | :--------------------: | :------------: | :---: | :---: | 
-|   mask_rcnn_r50_fpn_dconv | No (DeformConv is not implemented on CPU) | Yes | Yes | X / X / X | | 0.182s / 0.207s | 3.9GB / 4GB | | | TODO
-|   mask_rcnn_tresnet_m_fpn | Yes | Yes | No | 155k / 2 / 1024-1666px | 5.58s | x / 0.185s | x / 2.1GB | 0.684 / 0.748 | 0.727 / 0.786 | Fast model, but also a bit lower accuracy
 
 FP16 can be faster (especially if the GPU is RTX2xxx or newer) and *can* use less VRAM, but tests did not really show VRAM improvements. **Warning: Do not use FP16 on hardware that does not have Tensor Cores!** Due to overhead because of converting data into FP16, it can also be slower. Tests with a P100 showed slower inference speeds compared to FP32. Only use it on GPUs that are RTX2xxx and newer.
 
@@ -158,11 +148,11 @@ If you want to merge data with mine, I am `sudo rm -rf / --no-preserve-root#8353
 
 # How to manually annotate data (png files)
 
-An alternative is to have mask/file pairs, from which json files can be created. A suggestion would be do do:
+An alternative is to have mask/file pairs, from which json files can be created. Hash the files like in the Linux method and append a different suffix for one type of image. A suggestion would be do do:
 ```
 /masks
-- image1.png (mask with color [0,255,0])
-- image2_bar.png (mask with color [0, 255, 255])
+- image1.png (black image with [0,255,0] mask)
+- image2_bar.png (black image with [0, 255, 255] mask)
 ...
 
 /data
@@ -170,6 +160,7 @@ An alternative is to have mask/file pairs, from which json files can be created.
 - image2_bar.png
 ...
 ```
+The exact format is not that important. The only important thing is that a mask has a unique color and classes can be distinguished with filenames, so the mask data can be extracted and can not be confused with image data.
 
 # Future plans
 Improving the dataset to some degree, already trying. I don't think other models could improve the detection itself significantly. Maybe different backbones could, but they usually want a lot of VRAM.
