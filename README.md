@@ -162,7 +162,19 @@ VRAM usage and speed tests use 174 1024px resized png files with a Tesla V100, w
 
 # Creating an .exe with pyinstaller
 ```
-# Do the steps for Windows above
+# Do the steps for Windows above, but use the official mmdetection github instead
+# my fork uses timm, and that creates problems if you use pyinstaller
+git clone https://github.com/open-mmlab/mmdetection
+cd mmdetection
+
+# change requirements/runtime.txt from
+# pycocotools; platform_system == "Linux"
+# pycocotools-windows; platform_system == "Windows"
+# to
+# pycocotools
+
+pip install -e .
+
 # If conda is used, uninstall conda Pillow to avoid problems
 conda uninstall Pillow -y
 # or uninstall with pip
