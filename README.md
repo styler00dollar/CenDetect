@@ -36,16 +36,25 @@ conda install pytorch==1.9.0 torchvision==0.10.0 torchaudio==0.9.0 cudatoolkit=1
 # CPU
 # Installing PyTorch with pip
 pip install torch==1.9.0+cpu torchvision==0.10.0 torchaudio==0.9.0 -f https://download.pytorch.org/whl/torch_stable.html
-# or with Anaconda (the official conda command currently does not seem to work, this will install the cuda version, can also use cpu)
-conda create -n mmdetection python=3.9 -y
+# or with Anaconda (currently does show errors inside anaconda with 3.9, but 3.8 seems to work fine)
+conda create -n mmdetection python=3.8 -y
 conda activate mmdetection
-conda install -c pytorch pytorch -y
+conda install pytorch torchvision torchaudio cpuonly -c pytorch -y
+# if you really want 3.9, install it with CUDA. That is bigger in total size, but can also run cpu
+conda install pytorch torchvision -c pytorch -y
+
+# Alternatively you can visit https://pytorch.org/get-started/locally/ and look up install commands
 
 # Install other dependencies (pip also works in Anaconda)
-pip install opencv-python tqdm numpy
+pip install opencv-python tqdm numpy timm
 
-# Installing mmcv (compiling)
+# Installing pre-compiled mmcv
 pip install mmcv-full
+
+# Compiling mmcv instead
+git clone https://github.com/open-mmlab/mmcv.git
+cd mmcv
+MMCV_WITH_OPS=1 pip install -e .
 
 # Installing mmdetection
 git clone https://github.com/styler00dollar/Colab-mmdetection mmdetection
@@ -55,7 +64,7 @@ pip install -e .
 
 ## Windows
 ```
-# Install PyTorch, numpy, tqdm and OpenCV with the commands above
+# Install PyTorch, numpy, tqdm, timm and OpenCV with the commands above
 # Download Build Tools (https://visualstudio.microsoft.com/visual-cpp-build-tools/)
 # Select the first thing with C++ inside the installer and install
 # Reboot
@@ -64,9 +73,19 @@ pip install -e .
 
 # If Anaconda is used, activate env
 conda activate mmdetection
+# Installing with pip is not recommended inside of Windows, since it can result in DLL errors, compile it
+conda install git -y
+git clone https://github.com/open-mmlab/mmcv.git
 
-# compiling mmcv-full will only work if you completed the previous steps
+# if you do not use Anaconda, download the Code from the mmcv Github manually
+
+cd mmcv
+set MMCV_WITH_OPS=1
+pip install -e .
+
+# if you still want to try to install with pip
 pip install mmcv-full
+
 # Download the mmdetection Code (https://github.com/styler00dollar/Colab-mmdetection)
 # run install within the mmdetection directory
 pip install -e .
