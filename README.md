@@ -56,11 +56,13 @@ pip install mmcv-full
 git clone https://github.com/open-mmlab/mmcv.git
 cd mmcv
 MMCV_WITH_OPS=1 pip install -e .
+cd ..
 
 # Installing mmdetection
 git clone https://github.com/styler00dollar/Colab-mmdetection mmdetection
 cd mmdetection
 pip install -e .
+cd..
 ```
 
 ## Windows
@@ -82,6 +84,7 @@ git clone https://github.com/open-mmlab/mmcv.git
 cd mmcv
 set MMCV_WITH_OPS=1
 pip install -e .
+cd ..
 
 # if you still want to try to install with pip, here is the command
 pip install mmcv-full
@@ -90,6 +93,7 @@ pip install mmcv-full
 git clone https://github.com/styler00dollar/Colab-mmdetection mmdetection
 cd mmdetection
 pip install -e .
+cd ..
 ```
 
 ## Compiling PyTorch
