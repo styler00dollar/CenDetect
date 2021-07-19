@@ -169,6 +169,9 @@ conda uninstall Pillow -y
 pip uninstall Pillow
 pip install --upgrade Pillow
 
+# may be required to avoid crashing
+pip uninstall typing
+
 pip install pyinstaller
 pyinstaller --hidden-import=mmcv._ext --hidden-import torchvision det.py
 
