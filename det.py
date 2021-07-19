@@ -49,6 +49,8 @@ def main(args):
     else:
         device = args.device
 
+    print(f"Using device: {device}")
+
     model = init_detector(config_path, model_path, device=device)
 
     # detect all files from input folder
