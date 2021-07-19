@@ -74,20 +74,20 @@ pip install -e .
 # If Anaconda is used, activate env
 conda activate mmdetection
 # Installing with pip is not recommended inside of Windows, since it can result in DLL errors, compile it
+# if you do not use Anaconda, download the Code from the mmcv Github manually instead of using git commands
 conda install git -y
 git clone https://github.com/open-mmlab/mmcv.git
-
-# if you do not use Anaconda, download the Code from the mmcv Github manually
 
 cd mmcv
 set MMCV_WITH_OPS=1
 pip install -e .
 
-# if you still want to try to install with pip
+# if you still want to try to install with pip, here is the command
 pip install mmcv-full
 
-# Download the mmdetection Code (https://github.com/styler00dollar/Colab-mmdetection)
-# run install within the mmdetection directory
+# Same thing for mmdetection, either use git with conda or download Code manually and cd into it
+git clone https://github.com/styler00dollar/Colab-mmdetection mmdetection
+cd mmdetection
 pip install -e .
 ```
 
