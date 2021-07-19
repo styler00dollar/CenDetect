@@ -145,7 +145,7 @@ pip install package_name.whl
 # If Anaconda is used, make sure you use the correct env
 conda activate mmdetection
 
-python det.py [--fp16] [--confidence <float (0-1)>] [--input_path "PATH"] [--output_path "PATH">] [--device "cuda" or "cpu"] [--model "mask_rcnn_r50_fpn" | "mask_rcnn_r101_fpn" | "point_rend_r50_fpn" | "mask_rcnn_r50_fpn_dconv"]
+python det.py [--fp16] [--confidence <float (0-1)>] [--input_path "PATH"] [--output_path "PATH">] [--device "cuda" or "cpu"] [--model "mask_rcnn_r50_fpn" | "mask_rcnn_r101_fpn" | "point_rend_r50_fpn" | "cascade_mask_rcnn_r50_fpn_dconv"]
 ```
 
 There are currently 4 models. Trying to figure out what would be better or worse.
