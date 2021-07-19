@@ -39,9 +39,9 @@ pip install torch==1.9.0+cpu torchvision==0.10.0 torchaudio==0.9.0 -f https://do
 # or with Anaconda (currently does show errors inside anaconda with 3.9, but 3.8 seems to work fine)
 conda create -n mmdetection python=3.8 -y
 conda activate mmdetection
-conda install pytorch torchvision torchaudio cpuonly -c pytorch -y
+conda install pytorchn=1.9.0 torchvision torchaudio cpuonly -c pytorch -y
 # if you really want 3.9, install it with CUDA. That is bigger in total size, but can also run cpu
-conda install pytorch torchvision -c pytorch -y
+conda install pytorch=1.9.0 torchvision -c pytorch -y
 
 # Alternatively you can visit https://pytorch.org/get-started/locally/ and look up install commands
 
