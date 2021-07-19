@@ -36,10 +36,10 @@ conda install pytorch==1.9.0 torchvision==0.10.0 torchaudio==0.9.0 cudatoolkit=1
 # CPU
 # Installing PyTorch with pip
 pip install torch==1.9.0+cpu torchvision==0.10.0 torchaudio==0.9.0 -f https://download.pytorch.org/whl/torch_stable.html
-# or with Anaconda (conda install does not seem to work properly, using pip inside conda env instead)
+# or with Anaconda (the official conda command currently does not seem to work, this will install the cuda version, can also use cpu)
 conda create -n mmdetection python=3.9 -y
 conda activate mmdetection
-pip install torch==1.9.0+cpu torchvision==0.10.0 torchaudio==0.9.0 -f https://download.pytorch.org/whl/torch_stable.html
+conda install -c pytorch pytorch -y
 
 # Install other dependencies (pip also works in Anaconda)
 pip install opencv-python tqdm numpy
