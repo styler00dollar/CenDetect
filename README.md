@@ -46,7 +46,8 @@ conda install pytorch=1.9.0 torchvision -c pytorch -y
 # Alternatively you can visit https://pytorch.org/get-started/locally/ and look up install commands
 
 # Install other dependencies (pip also works in Anaconda)
-pip install opencv-python tqdm numpy timm
+pip install opencv-python tqdm numpy
+pip install timm --no-deps
 
 # Installing pre-compiled mmcv
 pip install mmcv-full
