@@ -170,6 +170,9 @@ pip install --upgrade Pillow
 
 pip install pyinstaller
 pyinstaller --hidden-import=mmcv._ext --hidden-import torchvision det.py
+
+# optional argument to make one .exe
+--onefile
 ```
 
 # How to manually annotate data (Linux)
