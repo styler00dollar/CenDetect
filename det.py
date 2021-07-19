@@ -10,6 +10,7 @@ import numpy as np
 from tqdm import tqdm
 import os
 import glob
+import torch
 
 # dont print deprication warnings
 import warnings
@@ -21,30 +22,34 @@ def parse_args():
     parser.add_argument('--fp16', action='store_true', required=False, help='Enables FP16')
     parser.add_argument('--input_path', type=str, default="input", required=False, help='Path to a folder for input')
     parser.add_argument('--output_path', type=str, default="output", required=False, help='Path to a folder for output')
-    
+
 
     # manually selecting config
-    parser.add_argument('--config_path', type=str, default="mask_rcnn_r50_fpn_2x_coco.py", required=False, help='Config file to build the model')
-    parser.add_argument('--model_path', type=str, default="epoch_3.pth", required=False, help='The path to the pth model itself')
+    #parser.add_argument('--config_path', type=str, default="mask_rcnn_r50_fpn_2x_coco.py", required=False, help='Config file to build the model')
+    #parser.add_argument('--model_path', type=str, default="epoch_3.pth", required=False, help='The path to the pth model itself')
 
-    #parser.add_argument('--model_directory', type=str, default="models", required=False, help='Folder path to configs and models')
-    #parser.add_argument('--model', type=str, default="mask_rcnn_r50_fpn", required=False, help='Seleting a model. [mask_rcnn_r50_fpn, mask_rcnn_r101_fpn, point_rend_r50_fpn, mask_rcnn_r50_fpn_dconv]')
+    parser.add_argument('--model_directory', type=str, default="models", required=False, help='Folder path to configs and models')
+    parser.add_argument('--model', type=str, default="mask_rcnn_r50_fpn", required=False, help='Seleting a model. [mask_rcnn_r50_fpn, mask_rcnn_r101_fpn, point_rend_r50_fpn, cascade_mask_rcnn_r50_fpn_dconv]')
 
-    parser.add_argument('--device', default='cuda:0', help='Device used for inference')
+    parser.add_argument('--device', default=None, help='Device used for inference')
     parser.add_argument('--confidence', type=float, default=0.3, required=False, help='Confidence thresh for detections (Values between 0 and 1)')
     args = parser.parse_args()
     return args
 
 def main(args):
     # manually select model and config path
-    model = init_detector(args.config_path, args.model_path, device=args.device)
+    #model = init_detector(args.config_path, args.model_path, device=args.device)
 
     # selection
-    """
     config_path = os.path.join(args.model_directory, args.model + ".py")
     model_path = os.path.join(args.model_directory, args.model + ".pth")
-    model = init_detector(config_path, model_path, device=args.device)
-    """
+
+    if args.device == None:
+        device = 'cuda' if torch.cuda.is_available() else 'cpu'
+    else:
+        device = args.device
+
+    model = init_detector(config_path, model_path, device=device)
 
     # detect all files from input folder
     files = glob.glob(args.input_path + '/**/*.png', recursive=True)
@@ -84,7 +89,7 @@ def main(args):
 
       # only save the mask
       #cv2.imwrite(os.path.join(output_path, os.path.splitext(os.path.basename(i))[0] + ".png"), np.array(mask).astype(np.uint8)*255)
-      
+
       # save with image
       image[mask]= [0, 255, 0]
       cv2.imwrite(os.path.join(args.output_path, os.path.splitext(os.path.basename(i))[0] + ".png"), np.array(image).astype(np.uint8))
