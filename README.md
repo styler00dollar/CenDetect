@@ -17,7 +17,7 @@ Just download from ``releases`` and open the ``.bat`` file. You can also edit th
 # Running from source
 There are 2 ways to install it, with and without Anaconda. If you don't want to use Anaconda, install normal Python. Python is already preinstalled in Linux based distros. Anaconda is recommended. If you do not use Anaconda, then you maybe need to install CUDA in Linux yourself. Inside Windows, it seems to be a requirement to install CUDA.
 
-The exact version of Python and the other packages shouldn't be very important, but make sure that [mmcv](https://github.com/open-mmlab/mmcv) does support the installed PyTorch package. Currently it ``supports up to Pytorch 1.8``. ``Pytorch 1.9 currently is not compatible`` and will result in errors.
+The exact version of Python and the other packages shouldn't be very important, but make sure that [mmcv](https://github.com/open-mmlab/mmcv) does support the installed PyTorch package.
 
 Anaconda: https://www.anaconda.com/products/individual
 
@@ -39,9 +39,9 @@ pip install torch==1.9.0+cpu torchvision==0.10.0 torchaudio==0.9.0 -f https://do
 # or with Anaconda (currently does show errors inside anaconda with 3.9, but 3.8 seems to work fine)
 conda create -n mmdetection python=3.8 -y
 conda activate mmdetection
-conda install pytorchn=1.9.0 torchvision torchaudio cpuonly -c pytorch -y
+conda install pytorch==1.9.0 torchvision torchaudio cpuonly -c pytorch -y
 # if you really want 3.9, install it with CUDA. That is bigger in total size, but can also run cpu
-conda install pytorch=1.9.0 torchvision -c pytorch -y
+conda install pytorch==1.9.0 torchvision -c pytorch -y
 
 # Alternatively you can visit https://pytorch.org/get-started/locally/ and look up install commands
 
