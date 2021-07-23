@@ -256,20 +256,6 @@ docker-compose up
 http://localhost:5000/
 ```
 
-# How to manually annotate data (png files)
-
-An alternative is to have mask/file pairs, from which json files can be created. Hash the files like in the Linux method. A suggestion would be do do:
-```
-/masks
-- b40f4afe1ce30dfd69f6fc6308531ed0.png (black image with [0,255,0] for bar and [0,255,255] for mosaic)
-...
-
-/data
-- b40f4afe1ce30dfd69f6fc6308531ed0.png
-...
-```
-The exact format is not that important. The only important thing is that a mask has a unique color and classes can be distinguished with filenames, so the mask data can be extracted and can not be confused with image data.
-
 # Future plans
 Improving the dataset to some degree, already trying. I don't think other models could improve the detection itself significantly. Maybe different backbones could, but they usually want a lot of VRAM.
 
