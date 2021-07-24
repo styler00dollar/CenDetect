@@ -122,6 +122,7 @@ pip install -e .
 
 # if errors with gloo appear, try this
 NO_DISTRIBUTED=1 USE_DISTRIBUTED=0 USE_GLOO=0 python setup.py install
+# more flags can be found in setup.py https://github.com/pytorch/pytorch/blob/master/setup.py
 # if install fails due to permissions, input "sudo su" and try installing it again
 
 # or create whl to install
