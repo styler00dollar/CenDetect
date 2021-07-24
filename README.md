@@ -120,6 +120,8 @@ python setup.py install
 or
 pip install -e .
 
+# if errors with gloo appear, try this
+NO_DISTRIBUTED=1 python setup.py install
 # if install fails due to permissions, input "sudo su" and try installing it again
 
 # or create whl to install
