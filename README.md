@@ -101,7 +101,9 @@ If you really want to compile PyTorch instead of using the pre-compiled version 
 
 Linux
 ```
+sudo su
 yay -S cmake
+pip install cmake
 
 # if you use conda
 conda activate mmdetection
