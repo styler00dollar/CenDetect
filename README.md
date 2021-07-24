@@ -65,14 +65,6 @@ pip install -e .
 cd..
 ```
 
-If you compile master branch instead of a release, then also compile torchvision while being inside `sudo su` to avoid downloading pre-compiled PyTorch with pip.
-```
-git clone https://github.com/pytorch/vision
-cd vision
-python setup.py install
-```
-or just use `pip install torchvision --no-deps` to download the pre-compiled version without replacing the compiled PyTorch.
-
 ## Windows
 ```
 # Install PyTorch, numpy, tqdm, timm and OpenCV with the commands above
@@ -134,6 +126,14 @@ python setup.py bdist_wheel
 # find the created .whl file and cd into it
 pip install package_name.whl
 ```
+If you compile master branch instead of a release, then also compile torchvision while being inside `sudo su` to avoid downloading pre-compiled PyTorch with pip.
+```
+git clone https://github.com/pytorch/vision
+cd vision
+python setup.py install
+```
+or just use `pip install torchvision --no-deps` to download the pre-compiled version without replacing the compiled PyTorch.
+
 Windows (Instructions for conda, since git is needed)
 ```
 # Download Build Tools (https://visualstudio.microsoft.com/visual-cpp-build-tools/)
