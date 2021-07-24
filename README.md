@@ -102,7 +102,6 @@ If you really want to compile PyTorch instead of using the pre-compiled version 
 Linux
 ```
 yay -S cmake gcc
-sudo su
 
 # if you use conda
 conda activate mmdetection
@@ -120,6 +119,8 @@ git submodule update --init --recursive
 python setup.py install
 or
 pip install -e .
+
+# if install fails due to permissions, input "sudo su" and try installing it again
 
 # or create whl to install
 python setup.py bdist_wheel
