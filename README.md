@@ -110,11 +110,12 @@ If you really want to compile PyTorch instead of using the pre-compiled version 
 Linux
 ```
 sudo su
-yay -S cmake
-pip install cmake
 
 # if you use conda
 conda activate mmdetection
+
+yay -S cmake gcc
+pip install cmake numpy ninja typing_extensions
 
 git clone https://github.com/pytorch/pytorch
 cd pytorch
@@ -122,7 +123,6 @@ cd pytorch
 git checkout remotes/origin/release/1.9
 
 git submodule update --init --recursive
-pip install typing_extensions
 
 # install directly
 python setup.py install
