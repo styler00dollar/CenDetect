@@ -101,6 +101,8 @@ If you really want to compile PyTorch instead of using the pre-compiled version 
 
 Linux
 ```
+yay -S cmake
+
 # if you use conda
 conda activate mmdetection
 
@@ -110,6 +112,7 @@ cd pytorch
 git checkout remotes/origin/release/1.9
 
 git submodule update --init --recursive
+pip install typing_extensions
 
 # install directly
 python setup.py install
