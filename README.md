@@ -99,6 +99,8 @@ cd ..
 ## Compiling PyTorch
 If you really want to compile PyTorch instead of using the pre-compiled version in the instructions above, then use these steps. One of the main reasons for doing so is that there currently is no Cuda 11.3/11.4 binary for PyTorch, but it can be compiled.
 
+Official PyTorch install instructions are [here](https://github.com/pytorch/pytorch#from-source).
+
 Linux (Anaconda recommended)
 ```
 yay -S cmake gcc
