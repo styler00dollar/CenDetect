@@ -172,7 +172,7 @@ python det.py [--fp16] [--confidence <float (0-1)>] [--input_path "PATH"] [--out
 ```
 
 There are currently 4 models. Trying to figure out what would be better or worse.
-|    Model     |  CPU  | GPU (CUDA) | FP16 | Iterations / Batch Size / MinMax Train Res | Speed CPU | Speed GPU (FP16/FP32) | VRAM Usage (FP16/FP32) | bbox mAP / mAR @IoU=0.50:0.95 |  segm mAP / mAR @IoU=0.50:0.95 
+|    Model     |  CPU  | GPU (CUDA) | FP16 (GPU) | Iterations / Batch Size / MinMax Train Res | Speed CPU | Speed GPU (FP16/FP32) | VRAM Usage (FP16/FP32) | bbox mAP / mAR @IoU=0.50:0.95 |  segm mAP / mAR @IoU=0.50:0.95 
 | :----------: | :---: | :--------: | :--: | :----------------------------------------: | :-------------------: | :-------------------: | :--------------------: | :------------: | :---: | 
 |   mask_rcnn_r50_fpn       | Yes | Yes | Yes | 235k / 2 / 1024-1666px | 7.24s | 0.158s / 0.185s | 2.7GB / 2.6GB | 0.757 / 0.819 | 0.808 / 0.855
 |   mask_rcnn_r101_fpn      | Yes | Yes | Yes | 190k / 2 / 1024-1500px | 9.13s | 0.165s / 0.2s | 2.3GB / 2.2GB | 0.756 / 0.811 | 0.792 / 0.840
