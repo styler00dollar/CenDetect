@@ -11,9 +11,6 @@ A repository to detect degradation in images and masking such areas.
 - Big dataset with augmentations
 - Multiple architectures (since it uses mmdetection as a base)
 
-# Running the compiled version (Windows)
-Just download from ``releases`` and open the ``.bat`` file. You can also edit that file to change the startup parameters, like ``confidence`` and ``fp16``.
-
 # Running from source
 There are 2 ways to install it, with and without Anaconda. If you don't want to use Anaconda, install normal Python. Python is already preinstalled in Linux based distros. Anaconda is recommended. If you do not use Anaconda, then you maybe need to install CUDA in Linux yourself. Inside Windows, it seems to be a requirement to install CUDA.
 
